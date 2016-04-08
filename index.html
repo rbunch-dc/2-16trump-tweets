@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html ng-app="tweetApp">
+<head>
+	<title></title>
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
+
+
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
+	<script type="text/javascript" src="https://code.angularjs.org/1.5.3/angular-route.min.js"></script>
+	<script type="text/javascript" src="js/mainController.js"></script>	
+</head>
+<body ng-controller="mainController">
+
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-12" ng-repeat="tweet in data">
+				{{tweet.text}} -- {{tweet.user.name}} -- {{tweet.sinceTweeted}} seconds ago
+				<img ng-src="{{tweet.user.profile_banner_url}}" />
+			</div>
+		</div>
+	</div>
+
+	<tweet-header></tweet-header>
+
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-12" ng-repeat="tweet in data" tweet-data></div>
+		</div>
+	</div>
+
+	<div stupid-click>
+		Please click on me. I'm a custom directive.
+	</div>
+
+	<div tweet-data>
+		Here is some content
+	</div>
+
+
+</body>
+</html>
